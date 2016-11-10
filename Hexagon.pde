@@ -11,6 +11,7 @@ class Hexagon
     center_x = x;
     center_y = y;
      
+    fillColor = color(255, 255, 255); 
     alpha = a;
   }
   
@@ -18,14 +19,9 @@ class Hexagon
   {
     pushMatrix();
     translate(center_x, center_y);  
-    
-    _colornoise += 0.05;
-    fillColor = color(0, 0, noise(_colornoise) * 255); 
-    
     fill(fillColor, alpha);
     
     beginShape();
-    
     for(int ang = 30; ang < 360; ang += 60)
     {
       float radian = radians(ang);
@@ -33,8 +29,7 @@ class Hexagon
       float vertex_y = radius * sin(radian);
       
       vertex(vertex_x, vertex_y);
-    }  
-    
+    }
     endShape();
     
     popMatrix();
